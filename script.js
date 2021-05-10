@@ -26,7 +26,7 @@ function addTodo(event) {
   //Creating li tag
   const todoLi = document.createElement("li");
   todoLi.classList.add("todo");
-  todoLi.innerText = "hey";
+  todoLi.innerText = `${todoInput.value}`;
   //adding in div
   todoDiv.appendChild(todoLi);
   //Create check button..
@@ -42,5 +42,8 @@ function addTodo(event) {
 
   //adding todo div into todo list
   todoList.appendChild(todoDiv);
+
+  // clear todo Input Value 
+  todoInput.value="";
 
 }

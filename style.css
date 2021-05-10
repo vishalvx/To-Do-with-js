@@ -1,40 +1,90 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    background-image: linear-gradient(270deg,#95e1d3,#fce38a);
-    color:rgb(58, 58, 58);
-    font-family: 'Courier New', Courier, monospace;
+body {
+  background-image: linear-gradient(270deg, #95e1d3, #fce38a);
+  color: rgb(58, 58, 58);
+  font-family: "Courier New", Courier, monospace;
 }
-header,form{
-    min-height: 15vh;
-    display: flex;
-    align-items: center;
-    justify-content:center;
+header,
+form {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h2 {
+  font-size: 1.8rem;
+}
+form input,
+form button {
+  padding: 0.5rem;
+  border: none;
+  background: white;
+}
+form input {
+  padding: 0.4rem 2rem;
+  border-radius: 0.2rem;
+}
+form button {
+  border-radius: 0.3rem;
+  color: #95e1d3;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover {
+  background: #95e1d3;
+  color: white;
+}
+/* <div class="todo-item">
+  <li class="todo">hey</li>
+    <button class="trash-button"><i></i></button>
+   <button class="check-button"><i></i></button>
+  </div>  */
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.todo-list{
+  list-style: none;
+  min-width: 20%;
+}
+.todo-item {
+  display: flex;
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.1rem;
+}
+.todo-item li{
+  flex:1;
+  padding: 0.3rem;
+}
+.check-button,.trash-button{
+  background: #95e1d3;
+  color: white;
+  padding: 0.3rem;
+  border: none;
+}
+.check-button:hover{
+  
+  color: #62a095;
+  background:#95e1d3 ;
+  transition: all 0.7s ease;
+  
+}
+.trash-button{
+  background-color: #fab574;
+}
+.trash-button:hover{
+  
+  color: #d8904e;
+  background:#fab574 ;
+  transition: all 0.7s ease;
+}
 
-}
-h2{
-    font-size: 1.8rem;
-}
-form input,form button{
-    padding: 0.5rem;
-    border: none;
-    background: white;
-}
-form input{
-    padding:0.4rem 2rem ;
-    border-radius: 0.2rem;
-}
-form button{
-    border-radius: 0.3rem;
-    color: #95e1d3;
-    cursor:pointer;
-    transition: all 0.3s ease;
-}
-form button:hover{
-    background:#95e1d3;
-    color: white;
-    
+.completed{
+  text-decoration: line-through;
 }

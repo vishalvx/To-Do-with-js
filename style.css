@@ -72,8 +72,7 @@ form button:hover {
   
   color: #62a095;
   background:#95e1d3 ;
-  transition: all 0.7s ease;
-  
+  transition: all 0.7s ease; 
 }
 .trash-button{
   background-color: #fab574;

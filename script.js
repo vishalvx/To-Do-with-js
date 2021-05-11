@@ -1,22 +1,23 @@
 /*
   Selector
 */
-const  todoInput = document.querySelector(".todo-input");
-const  todoButton = document.querySelector(".todo-button");
-const  todoList = document.querySelector(".todo-list");
+const todoInput = document.querySelector(".todo-input");
+const todoButton = document.querySelector(".todo-button");
+const todoList = document.querySelector(".todo-list");
 
 /*
   Evenet Listener
 */
 
 todoButton.addEventListener("click", addTodo);
+//we add event listener to whole ul tag because we getall li access with butttons
+todoList.addEventListener("click", deleteCheckTodo);
 
 /*
   Function
 */
 
 function addTodo(event) {
-
   //preventing form from submiting
   event.preventDefault();
 
@@ -32,18 +33,35 @@ function addTodo(event) {
   //Create check button..
   const checkedButton = document.createElement("button");
   checkedButton.classList.add("check-button");
-  checkedButton.innerHTML = '<i class="fas fa-check"></i>'
+  checkedButton.innerHTML = '<i class="fas fa-check"></i>';
   todoDiv.appendChild(checkedButton);
   //Create trash button..
   const trashButton = document.createElement("button");
   trashButton.classList.add("trash-button");
-  trashButton.innerHTML = '<i class="fas fa-trash"></i>'
+  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   todoDiv.appendChild(trashButton);
 
   //adding todo div into todo list
   todoList.appendChild(todoDiv);
 
-  // clear todo Input Value 
-  todoInput.value="";
+  // clear todo Input Value
+  todoInput.value = "";
+}
 
+function deleteCheckTodo(e) {
+  const item = e.target;
+  // console.log(item);
+
+  //DELETE TODO by checking class ==="fa-trash"
+  if (item.classList[0]==="trash-button") {
+    const  todo=item.parentElement;
+    //animation
+    todo.classList.add("skip");
+    todo.addEventListener("transitionend",function() {
+      todo.remove();
+    })
+  }
+  if (item.classList[0]==="check-button") {
+    item.parentElement.classList.toggle("completed");
+  }
 }

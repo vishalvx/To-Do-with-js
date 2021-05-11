@@ -57,6 +57,7 @@ form button:hover {
   margin: 0.5rem;
   background: white;
   font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 .todo-item li{
   flex:1;
@@ -86,4 +87,17 @@ form button:hover {
 
 .completed{
   text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* by doing pointer event: none , we can't lick is anymore */
+.fa-trash,.fa-check{
+  pointer-events: none;
+}
+
+/*delete  TODO animation'*/
+.skip{
+  transform: translateX(20rem);
+  opacity: 0;
+  transition: all 0.4s ease;
 }

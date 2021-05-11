@@ -4,6 +4,7 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const todoFilter = document.querySelector(".todo-select");
 
 /*
   Evenet Listener
@@ -12,6 +13,8 @@ const todoList = document.querySelector(".todo-list");
 todoButton.addEventListener("click", addTodo);
 //we add event listener to whole ul tag because we getall li access with butttons
 todoList.addEventListener("click", deleteCheckTodo);
+// FOR Select bar 
+todoFilter.addEventListener("click",todoOption)
 
 /*
   Function
@@ -64,4 +67,33 @@ function deleteCheckTodo(e) {
   if (item.classList[0]==="check-button") {
     item.parentElement.classList.toggle("completed");
   }
+}
+
+
+function todoOption(e){
+  // getting all the element as nodes from todoList 
+  const todos = todoList.childNodes;
+  // console.log(e.target.value);
+  todos.forEach(function(todo) {
+    
+    switch (e.target.value) {
+      case "all":
+        todo.style.display="flex";
+        break;
+      case "completed":
+        if(todo.classList.contains("completed")){
+          todo.style.display="flex";
+        }else{
+          todo.style.display="none";
+        }
+        break;
+      case "uncompleted":
+          if(!todo.classList.contains("completed")){
+            todo.style.display="flex";
+          }else{
+            todo.style.display="none";
+          }
+          break;
+    }
+  })
 }
